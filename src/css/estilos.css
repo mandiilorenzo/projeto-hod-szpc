@@ -1,0 +1,122 @@
+body {
+    font-family: "Poppins", sans-serif;
+    /*Caso não seja a fonte Poppins, procurar pela sans-serif*/
+    background-color: aqua;
+    max-width: 1280;
+    /*largura máxima*/
+    margin: 0 auto;
+}
+
+.carrossel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /*preencher toda a tela*/
+    width: 100%;
+    z-index: -1;
+    /*colocar texto sobre as imagens*/
+}
+
+.informacoes {
+    display: none;
+    /*ocultar um elemento da página*/
+}
+
+.informacoes.ativa {
+    display: block;
+}
+
+.conteudo {
+    display: flex;
+    /*criar um layout flexível*/
+    flex-direction: column;
+    justify-content: space-evenly;
+    /*espace todos os elementos da mesma forma*/
+    min-height: 100vh;
+}
+
+.informacoes h1 {
+    font-size: 30px;
+    /*tamanho da fonte*/
+    color: #ffffff;
+    margin-bottom: 80px;
+    font-family: GOT;
+    letter-spacing: 8px;
+    padding: 24px;
+    margin-left: 25px;
+}
+
+@font-face {
+    font-family: "GOT";
+    src: url(../fontes/GOT.ttf);
+}
+
+.informacoes .descricao {
+    width: 49%;
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 40px;
+    /*altura da linha*/
+    height: 300px;
+    overflow: auto;
+    /*criar uma rolagem caso haja mais texto*/
+    padding: 24px;
+    margin-left: 25px;
+}
+
+.botoes-carrossel {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /*espaçamento*/
+}
+
+.botoes-carrossel .botao {
+    background-color: #ffffff;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    /*arredondar os botões*/
+    border: 2px solid transparent;
+    cursor: pointer;
+    /*maozinha*/
+    border-color: #ffffff;
+}
+
+.botoes-carrossel .botao.selecionado {
+    background-color: #1d8346;
+}
+
+.imagem {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    /*adequar a img, não distorce ela*/
+    display: none;
+}
+
+.imagem.ativa {
+    display: block;
+    animation: mudarImagem 0.7s;
+}
+
+@keyframes mudarImagem {
+    from {
+        opacity: 0.85;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+main:after{
+    content: "";
+    min-height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(120deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.05926120448179273) 50%, rgba(0, 0, 0, 1) 90%);
+    z-index: -1;
+}
